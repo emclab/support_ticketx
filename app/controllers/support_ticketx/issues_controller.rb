@@ -51,7 +51,6 @@ module SupportTicketx
       @erb_code = find_config_const('issue_show_view', 'support_ticketx')
     end
 
-
     def update_params
       params[:issue]['custom_fields'] = eval(Authentify::AuthentifyUtility.find_config_const('issue_custom_fields', 'support_ticketx'))
       params[:issue]['project_id'] =Authentify::AuthentifyUtility.find_config_const('project_id', 'support_ticketx')
