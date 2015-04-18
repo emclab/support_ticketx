@@ -1,0 +1,36 @@
+<% if @view_in_config && @erb_code %>
+  <%= render inline: ERB.new(@erb_code).result(binding) %>
+<% else %>
+    <table class="table table-striped">
+		<tr>
+			<th>#</th>
+			<th><%= t('Priority') %></th>
+			<th><%= t('Subject') %></th>
+            <th><%= t('Status') %></th>
+			<th><%= t('Contact Name') %></th>
+			<th><%= t('Started') %></th>
+            <th></th>
+		</tr>
+		<% models.each do |r| %>
+		  <tr>
+            <td><%= r.id  %></td>
+            <td><%= r.priority_name  %></td>
+            <td><%= r.subject %></td>
+            <td><%= r.status_name if r.status %></td>
+            <td><%= r.contact_name %></td>
+            <td><%= r.start_date %></td>
+            <td><%= link_to t('Edit'), SUBURI + "/authentify/view_handler?index=1&url=#{CGI.escape edit_issue_path(r)}", :class => BUTTONS_CLS['action']  if has_action_right?('update', params[:controller], r)  %></td>
+		  </tr>
+		<% end %>
+	</table>
+	<table class="table table-striped">
+	  <tr>
+	    <th>
+	    	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	    	<%= link_to t('Back'), SUBURI + "/authentify/view_handler?index=0", :class => BUTTONS_CLS['action']  %>
+	    	<%= link_to t('New Issue'), SUBURI + "/authentify/view_handler?index=1&url=#{CGI.escape new_issue_path( )}", :class => BUTTONS_CLS['action']  if has_action_right?('create', params[:controller]) %>
+	    </th>
+	  </tr>
+	</table>
+
+<% end %>	

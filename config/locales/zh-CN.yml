@@ -1,0 +1,28 @@
+# Sample localization file for English. Add more files in this directory for other locales.
+# See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+  
+zh-CN:
+  
+  #support_ticketx
+  Application Name        : 'Chines-Application Name'
+  Support Tickets         : 'Chines-Support Tickets'
+  New Support Ticket      : 'Chines-New Support Ticket'
+  Update Support Ticket   : 'Chines-Update Support Ticket'
+  Edit Support Ticket     : 'Chines-Edit Support Ticket'
+  Show Support Ticket     : 'Chines-Show Support Ticket'
+  Support Tickets Info    : 'Chines-Support Tickets Info'
+  Description             : 'Chines-Description'
+  Last Updated By         : '更改'  
+  Assigned To             : 'Chines-Assigned To'
+  Requested By            : '申请'
+  Last Updated By         : '更改'
+  Requested By            : '申请人'
+  Request Date            : '申请日期'
+  WF State                : '流程状态'
+  Initial State           : '待审批'
+  Support Ticket Search   : '请款搜索'
+  Successfully Saved!     : '已保存！'
+  Successfully Updated!   : '已更新！'
+  Data Error. Not Saved!  : '数据错误。 无法保存！'
+  Data Error. Not Updated!: '数据错误。无法更新！'
+  

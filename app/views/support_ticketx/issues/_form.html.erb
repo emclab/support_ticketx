@@ -1,0 +1,18 @@
+<% if @view_in_config && @erb_code %>
+    <%= render inline: @erb_code %>
+<% else %>
+    <%= simple_form_for @issue do |f| %>
+        <%= f.input :id, :label => t('Id'), :readonly => true, :input_html => {:rows => 1} %>
+        <!-- <%= f.input :app_name, :label => t('Application Name') + ':', :readonly => true, :required => true, :input_html => {:value => @issue.app_name || Rails.application.class.parent_name} %> -->
+        <%= f.input :subject, :label => t('Subject'), :input_html => {:rows => 1} %>
+        <%= f.input :description, :label => t('Issue Description'), :input_html => {:rows => 5} %>
+        <%= f.input :priority_name, :label => t('Priority'), :collection => Authentify::AuthentifyUtility.find_config_const('priorities_list', engine='support_ticketx').split(',').collect{|x| x.split(':')[1] } %>
+        <%= f.input :created_on, :label => t('Created On'), :as => :string %>
+        <%= f.fields_for :custom_fields do |builder| %>
+            <p><%= render 'form_custom_fields', locals: {f: f}, :f => builder %></p>
+        <% end %>
+        <%= link_to t('Back'), SUBURI + "/authentify/view_handler?index=0", :class => BUTTONS_CLS['action'] %>
+        <%= f.button :submit, t('Save'), :class => BUTTONS_CLS['action'] %>
+    <% end %>
+<% end %>
+

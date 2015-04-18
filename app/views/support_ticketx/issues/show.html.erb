@@ -1,0 +1,32 @@
+<% if @view_in_config && @erb_code %>
+  <%= render inline: ERB.new(@erb_code).result(binding) %>
+  
+<% else %>
+	<div id="main_body">
+		<h4><%=t('Issue Info') %></h4>
+		
+		<p>
+		  <b><%= t('Application Name') %></b>
+		  <%= t(Rails.application.class.parent_name.downcase) %>
+		</p>
+		<p>
+		  <b><%= t('Subject') %></b>
+		  <%= @issue.subject %>
+		</p>
+		<p>
+		  <b><%= t('Description') %></b>
+		  <%= @issue.description %>
+		</p>
+        <p>
+          <b><%= t('Priority') %></b>
+          <%= @issue.priority %>
+        </p>
+		<p>
+		  <b><%= t('Created On') %></b>
+		  <%= @issue.created_on %>
+		</p>
+
+      <%= link_to t('Back'), SUBURI + "/authentify/view_handler?index=0", :id => 'close', :class => BUTTONS_CLS['action'] %>
+
+	</div>
+<% end %>

@@ -1,0 +1,5 @@
+<div class="fields">
+   <%= f.input :comments, :label => t('Comments') + ':', :required => false, :input_html => {:value => @issue.comments} %>
+    <%= f.input :contact_name, :label => t('Contact Name') + ':', :required => false, :input_html => {:value => @issue.contact_name} %>
+    <%= f.input :contact_email, :label => t('Contact Email') + ':', :required => false, :input_html => {:value => @issue.contact_email} %>
+</div>
