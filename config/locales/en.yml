@@ -5,11 +5,10 @@ en:
   
   #support_ticketx
   Application Name        : 'Application Name'
-  Support Tickets         : 'Support Tickets'
-  New Support Ticket      : 'New Support Ticket'
-  Update Support Ticket   : 'Update Support Ticket'
-  Edit Support Ticket     : 'Edit Support Ticket'
-  Show Support Ticket     : 'Show Support Ticket'
+  Existing Issues         : 'Existing Issues'
+  New Issue               : 'New Issue'
+  Edit Issue              : 'Edit Issue'
+  Issue Details           : 'Issue Details'
   Support Tickets Info    : 'Support Tickets Info'
   Description             : 'Description'
   Last Updated By         : 'Last Updated By'

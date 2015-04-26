@@ -4,12 +4,11 @@
 zh-CN:
   
   #support_ticketx
-  Application Name        : 'Chines-Application Name'
-  Support Tickets         : 'Chines-Support Tickets'
-  New Support Ticket      : 'Chines-New Support Ticket'
-  Update Support Ticket   : 'Chines-Update Support Ticket'
-  Edit Support Ticket     : 'Chines-Edit Support Ticket'
-  Show Support Ticket     : 'Chines-Show Support Ticket'
+  Application Name        : 'Chinese-Application Name'
+  Existing Issues         : 'Chinese-Existing Issues'
+  New Issue               : 'Chinese-New Issue'
+  Edit Issue              : 'Chinese-Edit Issue'
+  Issue Details           : 'Chinese-Issue Details'
   Support Tickets Info    : 'Chines-Support Tickets Info'
   Description             : 'Chines-Description'
   Last Updated By         : '更改'  

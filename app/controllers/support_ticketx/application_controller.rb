@@ -1,5 +1,5 @@
 module SupportTicketx
-  class ApplicationController < ActionController::Base
+  class ApplicationController < ApplicationController
 
     include Authentify::SessionsHelper
     include Authentify::AuthentifyUtility

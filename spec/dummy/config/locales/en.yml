@@ -1,5 +1,28 @@
 # Sample localization file for English. Add more files in this directory for other locales.
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
-
+  
 en:
-  hello: "Hello world"
+  
+  #support_ticketx
+  Application Name        : 'Application Name'
+  Support Tickets         : 'Support Tickets'
+  New Support Ticket      : 'New Support Ticket'
+  Update Support Ticket   : 'Update Support Ticket'
+  Edit Support Ticket     : 'Edit Support Ticket'
+  Show Support Ticket     : 'Show Support Ticket'
+  Support Tickets Info    : 'Support Tickets Info'
+  Description             : 'Description'
+  Last Updated By         : 'Last Updated By'
+  Assigned To             : 'Assigned To'
+  Requested By            : 'Requested By'
+  Last Updated By         : 'Last Updated By'
+  Requested By            : 'Requested By'
+  Request Date            : 'Request Date'
+  WF State                : 'WF State'
+  Initial State           : 'Initial State'
+  Support Ticket Search   : 'Support Ticket Search'
+  Successfully Saved!     : 'Successfully Saved!'
+  Successfully Updated!   : 'Successfully Updated!'
+  Data Error. Not Saved!  : 'Data Error. Not Saved!'
+  Data Error. Not Updated!: 'Data Error. Not Updated!'
+  

@@ -1,7 +1,7 @@
-fgv require 'spec_helper'
+require 'spec_helper'
 
-describe "LinkTests" do
-  describe "GET /support_ticketx_link_tests" do
+describe "IssuesIntegrations" do
+  describe "GET /support_ticketx_issues_integrations" do
     mini_btn = 'btn btn-mini '
     ActionView::CompiledTemplates::BUTTONS_CLS =
         {'default' => 'btn',
@@ -57,72 +57,60 @@ describe "LinkTests" do
         #mock.post    "/issues.xml", {}, @@mockOneIssue
         mock.post    "/issues.xml", {}, @mockOneIssue
         #mock.post   "/issue.xml",   {}, @mockOneIssue, 201, "Location" => "/issue/1.xml"
-        mock.get    "/issues/1.xml", {}, @mockOneIssue
-        mock.put    "/issues/1.xml", {}, @mockOneIssue
-        mock.delete "/issue/1.xml", {}, nil, 200
+        mock.get    "/issues/2.xml", {}, @mockOneIssue
+        mock.put    "/issues/2.xml", {}, @mockOneIssue
+        mock.delete "/issue/2.xml", {}, nil, 200
       end
 
-    end
-
-    it "test entering new issue" do
-      user_access = FactoryGirl.create(:user_access, :action => 'create', :resource =>'support_ticketx_issues', :role_definition_id => @role.id, :rank => 1,
+      FactoryGirl.create(:user_access, :action => 'index', :resource =>'support_ticketx_issues', :role_definition_id => @role.id, :rank => 1,
                                        :sql_code => "")
+      FactoryGirl.create(:user_access, :action => 'create', :resource =>'support_ticketx_issues', :role_definition_id => @role.id, :rank => 1,
+                         :sql_code => "")
+      FactoryGirl.create(:user_access, :action => 'update', :resource =>'support_ticketx_issues', :role_definition_id => @role.id, :rank => 1,
+                         :sql_code => "")
+      FactoryGirl.create(:user_access, :action => 'show', :resource =>'support_ticketx_issues', :role_definition_id => @role.id, :rank => 1,
+                         :sql_code => "")
+
+
+
       visit '/'
       #save_and_open_page
       fill_in "login", :with => @u.login
       fill_in "password", :with => 'password'
       click_button 'Login'
 
-      visit new_issue_path
-      save_and_open_page
-      page.should have_content('New Issue')
-      click_link 'Edit'
-      #save_and_open_page
-      page.should have_content('Edit Payment Request')
-      #save_and_open_page
-      fill_in 'payment_request_amount', :with => 230
-      click_button "Save"
-      #bad data
-      visit payment_requests_path
-      click_link 'Edit'
-      page.should have_content('Edit Payment Request')
-      #save_and_open_page
-      fill_in 'payment_request_amount', :with => nil
-      click_button "Save"
-      save_and_open_page
-
-      visit payment_requests_path
-      #save_and_open_page
-      click_link task.id.to_s
-      #save_and_open_page
-      page.should have_content('Payment Request Info')
-      click_link 'New Log'
-      #save_and_open_page
-      page.should have_content('Log')
-
-      visit new_payment_request_path(:resource_id => @supplied.id, :resource_string => 'supplied_partx/parts', subaction: 'supplied_partx', :project_id => @proj.id)
-      save_and_open_page
-      page.should have_content('New Payment Request')
-      fill_in 'payment_request_request_date', :with => '2014-04-11'
-      fill_in 'payment_request_amount', :with =>  230
-      click_button 'Save'
-      save_and_open_page
-      #bad data
-      visit new_payment_request_path(:resource_id => @supplied.id, :resource_string => 'supplied_partx/parts', subaction: 'supplied_partx', :project_id => @proj.id)
-      page.should have_content('New Payment Request')
-      fill_in 'payment_request_request_date', :with => '2014-04-11'
-      fill_in 'payment_request_amount', :with =>  nil
-      click_button 'Save'
-      save_and_open_page
-
-      #new payment request link on index page
-      visit payment_requests_path(:resource_id => @supplied.id, :resource_string => 'supplied_partx/parts', :project_id => @proj.id)
-      save_and_open_page
-      click_link 'New Payment Request'
-      page.should have_content('New Payment Request')
-      save_and_open_page
-
     end
 
+    it "test entering new issue" do
+      visit issues_path
+      #save_and_open_page
+      page.should have_content('Existing Issues')
+      #save_and_open_page
+      page.should have_content('New Issue')
+      click_link('New Issue')
+      fill_in 'Subject', :with => 'This is a subject'
+      fill_in 'Issue Description', :with => 'This is a description'
+      page.select  'Major', :from => 'Priority'
+      fill_in 'Created On', :with => Date.today
+      fill_in 'Comments', :with => 'This is a subject'
+      fill_in 'Contact Name', :with => 'This is a contact name'
+      fill_in 'Contact Email', :with => 'This is a contact email'
+      #save_and_open_page
+
+      visit issues_path
+      #save_and_open_page
+      page.should have_content('Existing Issues')
+
+      click_link('Edit', match: :first)
+      #save_and_open_page
+      visit edit_issue_path(id: 2)
+      page.should have_content('Edit Issue')
+      fill_in 'Subject', :with => 'Edited Subject'
+
+      visit issues_path
+      save_and_open_page
+      click_link('2')
+      page.should have_content('Issue Details')
+    end
   end
 end

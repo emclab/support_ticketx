@@ -13,7 +13,7 @@
 		</tr>
 		<% models.each do |r| %>
 		  <tr>
-            <td><%= r.id  %></td>
+            <td><%= link_to r.id.to_s, SUBURI + "/authentify/view_handler?index=1&url=#{CGI.escape issue_path(r)}" %></td>
             <td><%= r.priority_name  %></td>
             <td><%= r.subject %></td>
             <td><%= r.status_name if r.status %></td>

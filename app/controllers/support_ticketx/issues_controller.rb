@@ -1,3 +1,5 @@
+require_dependency "support_ticketx/application_controller"
+
 module SupportTicketx
   class IssuesController < ApplicationController
 
@@ -27,7 +29,7 @@ module SupportTicketx
     end
 
     def edit
-      @title = t('Update Issue')
+      @title = t('Edit Issue')
       @issue = SupportTicketx::Issue.find(params[:id])
       @erb_code = find_config_const('issue_edit_view', 'support_ticketx')
       @erb_code_custom_fields = find_config_const('issue_custom_fields_view', 'support_ticketx')
@@ -46,7 +48,7 @@ module SupportTicketx
     end
 
     def show
-      @title = t('Show Issue')
+      @title = t('Issue Details')
       @issue = SupportTicketx::Issue.find(params[:id])
       @erb_code = find_config_const('issue_show_view', 'support_ticketx')
     end

@@ -3,7 +3,7 @@
   
 <% else %>
 	<div id="main_body">
-		<h4><%=t('Issue Info') %></h4>
+		<h4><%= @title %></h4>
 		
 		<p>
 		  <b><%= t('Application Name') %></b>
@@ -19,7 +19,7 @@
 		</p>
         <p>
           <b><%= t('Priority') %></b>
-          <%= @issue.priority %>
+          <%= @issue.priority.name %>
         </p>
 		<p>
 		  <b><%= t('Created On') %></b>

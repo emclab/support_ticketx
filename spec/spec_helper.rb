@@ -47,4 +47,6 @@ RSpec.configure do |config|
 
   #render_views in controllers  
   config.render_views
+
+  config.include Capybara::DSL
 end
