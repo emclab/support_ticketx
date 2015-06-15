@@ -9,8 +9,10 @@ gemspec
 gem "jquery-rails"
 gem 'will_paginate'
 
-gem 'authentify', :path => '../authentify'  #for rspec test
-gem 'commonx', :path => '../commonx'
+gem 'authentify', :path => '../authentify', branch: '4.2.0'  #for rspec test
+gem 'commonx', :path => '../commonx', branch: '4.2.0'
+gem 'tzinfo-data', platforms: [:mingw_20, :mingw, :mswin]
+gem 'protected_attributes'  #for rails 4
 
 # Declare any dependencies that are still in development here instead of in
 # your gemspec. These might include edge Rails or gems from your path or
@@ -19,3 +21,4 @@ gem 'commonx', :path => '../commonx'
 
 # To use debugger
 # gem 'debugger'
+

@@ -12,7 +12,9 @@ module SupportTicketx
 
     def new
       @title = t('New Issue')
-      @issue = SupportTicketx::Issue.new(attributes=eval(Authentify::AuthentifyUtility.find_config_const('support_ticket_new_attrs', 'support_ticketx')))
+      attributes = eval(Authentify::AuthentifyUtility.find_config_const('support_ticket_new_attrs', 'support_ticketx'))
+      attributes[:project_id] = Authentify::AuthentifyUtility.find_config_const('project_id', 'support_ticketx')
+      @issue = SupportTicketx::Issue.new(attributes=attributes)
       @erb_code = find_config_const('issue_new_view', 'support_ticketx')
     end
 
