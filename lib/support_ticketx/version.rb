@@ -1,3 +1,3 @@
 module SupportTicketx
-  VERSION = "0.0.1"
+  VERSION = "4.2.0"
 end
